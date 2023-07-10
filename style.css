@@ -1,0 +1,249 @@
+body{
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(240, 78%, 98%);
+    margin: 0;
+}
+
+.img-bg-top{
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+}
+
+.img-bg-bottom{
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+}
+
+*{
+  font-family: Montserrat;
+}
+
+p{
+  margin: 0;
+}
+
+.our-pricing{
+  position: absolute;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 7vh;
+}
+
+.input-container{
+  display: flex;
+  align-items: center;
+}
+
+.inpt-text{
+  color: hsl(234, 14%, 74%);
+  font-size: 14px;
+}
+
+.our-pricing-text{
+  font-size: 25px;
+  color: hsl(233, 13%, 49%);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 29px;
+  margin: 0px 20px;
+}
+
+.switch input {display:none;}
+
+
+@property --clr1Slider {
+  syntax: '<color>';
+  initial-value: hsl(236, 72%, 79%);
+  inherits: false;
+}
+
+@property --clr2Slider {
+  syntax: '<color>';
+  initial-value: hsl(237, 63%, 64%);
+  inherits: false;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient( to right, var(--clr1Slider), var(--clr2Slider));
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+  transition: --clr1Slider 0.15s, -clr1Slider 0.15s;
+}
+
+.slider:hover{
+  --clr1Slider: hsl(236, 72%, 89%);
+  --clr2Slider: hsl(237, 63%, 74%)
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 34px;
+  transition: .4s;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
+.block{
+  width: 290px;
+  height: 390px;
+  background-color: white;
+  box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, .2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding:30px;
+}
+
+.center{
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  height: 390px;
+  padding: 65px 30px;
+}
+
+.head-text{
+  color: hsl(233, 13%, 49%);
+}
+
+.price-text{
+  color: hsl(232, 13%, 33%);
+  font-size: 66px;
+  margin: 30px 0px;
+}
+
+.dollar-text{
+  font-size: 40px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+
+.description-text{
+  color: hsl(233, 13%, 49%);
+}
+
+.description-container{
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid hsl(234, 14%, 74%);
+}
+
+.upborder{
+  border-top: 1px solid hsl(234, 14%, 74%);
+}
+
+.white-clr{
+  color: white;
+}
+
+@property --clr1 {
+  syntax: '<color>';
+  initial-value: hsl(236, 72%, 79%);
+  inherits: false;
+}
+
+@property --clr2 {
+  syntax: '<color>';
+  initial-value: hsl(237, 63%, 64%);
+  inherits: false;
+}
+
+.btn-more{
+  background: linear-gradient( to right, var(--clr1), var(--clr2));
+  color: white;
+  letter-spacing: 3px;
+  width: 100%;
+  border-radius: 6px;
+  height: 50px;
+  border: 1px solid white;
+  margin-top: 30px;
+  transition: --clr1 0.15s, --clr2 0.15s, border-color 0.15s, color 0.15s;
+}
+.inverted-btn{
+  letter-spacing: 3px;
+  width: 100%;
+  border-radius: 6px;
+  height: 50px;
+  border: 1px solid white;
+  margin-top: 30px;
+  background: none;
+  background-color: white;
+  color: hsl(237, 63%, 64%);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.inverted-btn:hover{
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.btn-more:hover{
+  --clr1: white;
+  --clr2: white;
+  border-color: hsl(237, 63%, 64%);
+  color: hsl(237, 63%, 64%);
+  cursor: pointer;
+}
+
+@media(max-width: 1060px){
+  body{
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    margin-bottom: 100px;
+  }
+
+  .our-pricing{
+    position: static;
+    align-self: auto;
+    margin: 60px 0;
+  }
+
+  .block{
+    margin-bottom: 32px;
+  }
+}
+
+@media(max-width: 375px){
+  .block{
+    width: 95vw;
+    padding: 30px 0;
+  }
+
+  .price-text{
+    font-size: 42px;
+  }
+}
